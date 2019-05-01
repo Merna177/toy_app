@@ -1,0 +1,25 @@
+<%= form_for(@micropost_toy) do |f| %>
+  <% if @micropost_toy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@micropost_toy.errors.count, "error") %> prohibited this micropost_toy from being saved:</h2>
+
+      <ul>
+      <% @micropost_toy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
